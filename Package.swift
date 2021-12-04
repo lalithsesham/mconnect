@@ -23,8 +23,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(
             name: "PfyMcSDK",
-            url: "https://cirrus-deb-repo.s3.amazonaws.com/aesdk/0.1.1/PfyMcSDK.xcframework.zip",
-            checksum: "38d072ea19f73180ea3c756b589bc128c3cf858d884d1383e6e5ca484140a52e"
+            url: "https://cirrus-deb-repo.s3.amazonaws.com/aesdk/0.1.2/PfyMcSDK.xcframework.zip",
+            checksum: "69188f398fcf4a827e404291a37a479647cd6b50ae90945f66fb53d919df2410"
         )
         
     ]
