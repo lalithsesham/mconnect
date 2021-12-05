@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "PfyMcSDK",
-            targets: ["PfyMcSDK"]),
+            targets: ["PrivafyConnectSDK"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,6 +21,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
+	.target(
+	    name: "PrivafyConnectSDK",
+	    dependencies: [
+                .package( url: "https://github.com/datatheorem/TrustKit", .exact("2.0.0"))
+                .target(name: "PfyMcSDK")    
+            ],
+	),
         .binaryTarget(
             name: "PfyMcSDK",
             //url: "https://cirrus-deb-repo.s3.amazonaws.com/aesdk/0.1.3/PfyMcSDK.xcframework.zip",
@@ -30,6 +37,7 @@ let package = Package(
             //url: "https://cirrus-deb-repo.s3.amazonaws.com/aesdk/0.1.2/PfyMcSDK.xcframework.zip",
             //checksum: "69188f398fcf4a827e404291a37a479647cd6b50ae90945f66fb53d919df2410"
         )
+	
         
     ]
 )
