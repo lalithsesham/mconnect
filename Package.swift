@@ -5,11 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "PfyMcSDK",
+    platforms: [
+        .macOS(.v10_14), .iOS(.v15)
+        ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "PfyMcSDK",
             targets: ["PfyMcSDKWrapper", "PfyMcSDK"]),
+        
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -27,8 +31,8 @@ let package = Package(
         .target(
             name: "PfyMcSDKWrapper",
             dependencies: [
-                .product( name: "TrustKit", package: "TrustKit"),
-                .target(name: "PfyMcSDK")
+                .product( name: "TrustKit", package: "TrustKit", condition: .when(platforms: [.iOS])),
+                .target(name: "PfyMcSDK"),
             ],
             path :"PfyMcSDKWrapper"
         ),
